@@ -43,7 +43,7 @@ public class FacturaPdfView extends AbstractPdfView {
 		
 		Locale locale = localeResolver.resolveLocale(request);
 		//Otra forma para traducir
-		MessageSourceAccessor messajes = getMessageSourceAccessor();
+		MessageSourceAccessor mensajes = getMessageSourceAccessor();
 		
 		cell = new PdfPCell(new Phrase(messageSource.getMessage("text.factura.ver.datos.cliente", null, locale)));
 		cell.setBackgroundColor(new Color(184, 218, 255));
@@ -61,9 +61,9 @@ public class FacturaPdfView extends AbstractPdfView {
 		cell.setPadding(8f);
 		tabla2.addCell(cell);
 		
-		tabla2.addCell(messajes.getMessage("text.cliente.factura.folio") + ": " + factura.getId());
-		tabla2.addCell(messajes.getMessage("text.cliente.factura.descripcion") + ": " + factura.getDescription());
-		tabla2.addCell(messajes.getMessage("text.cliente.factura.fecha") + ": " + factura.getCreateAt());
+		tabla2.addCell(mensajes.getMessage("text.cliente.factura.folio") + ": " + factura.getId());
+		tabla2.addCell(mensajes.getMessage("text.cliente.factura.descripcion") + ": " + factura.getDescription());
+		tabla2.addCell(mensajes.getMessage("text.cliente.factura.fecha") + ": " + factura.getCreateAt());
 		
 		document.add(tabla);
 		document.add(tabla2);
@@ -71,10 +71,10 @@ public class FacturaPdfView extends AbstractPdfView {
 		PdfPTable tabla3 = new PdfPTable(4);
 		tabla3.setWidths(new float [] {3.5f, 1, 1, 1});
 		tabla3.setSpacingAfter(20);
-		tabla3.addCell(messajes.getMessage("text.factura.form.item.nombre"));
-		tabla3.addCell(messajes.getMessage("text.factura.form.item.precio"));
-		tabla3.addCell(messajes.getMessage("text.factura.form.item.cantidad"));
-		tabla3.addCell(messajes.getMessage("text.factura.form.item.total"));
+		tabla3.addCell(mensajes.getMessage("text.factura.form.item.nombre"));
+		tabla3.addCell(mensajes.getMessage("text.factura.form.item.precio"));
+		tabla3.addCell(mensajes.getMessage("text.factura.form.item.cantidad"));
+		tabla3.addCell(mensajes.getMessage("text.factura.form.item.total"));
 		
 		for (ItemFactura item: factura.getItems()) {
 			tabla3.addCell(item.getProducto().getNombre());
@@ -86,7 +86,7 @@ public class FacturaPdfView extends AbstractPdfView {
 			tabla3.addCell(item.calcularImporte().toString());
 		}
 		
-		cell = new PdfPCell(new Phrase(messajes.getMessage("text.factura.form.total")));
+		cell = new PdfPCell(new Phrase(mensajes.getMessage("text.factura.form.total") + ": "));
 		cell.setColspan(3);
 		cell.setHorizontalAlignment(PdfPCell.ALIGN_RIGHT);
 		tabla3.addCell(cell);
