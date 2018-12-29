@@ -3,7 +3,6 @@ package com.bolsadeideas.springboot.app.controllers;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -46,6 +45,7 @@ import com.bolsadeideas.springboot.app.models.entity.Cliente;
 import com.bolsadeideas.springboot.app.models.service.IClienteService;
 import com.bolsadeideas.springboot.app.models.service.IUploadFileService;
 import com.bolsadeideas.springboot.app.util.paginator.PageRender;
+import com.bolsadeideas.springboot.app.view.xml.ClienteList;
 
 @Controller
 @SessionAttributes("cliente")
@@ -93,8 +93,8 @@ public class ClienteController {
 	}
 	
 	@GetMapping(value="/listar-rest")
-	public @ResponseBody List<Cliente> listarRest() {
-		return clienteService.findAll();
+	public @ResponseBody ClienteList listarRest() {
+		return new ClienteList(clienteService.findAll());
 	}
 	
 	@RequestMapping(value={"/listar", "/"}, method=RequestMethod.GET)
