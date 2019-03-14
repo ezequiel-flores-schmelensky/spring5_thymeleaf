@@ -8,11 +8,11 @@
 		<version>2.1.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.bolsadeideas.springboot.datajpa.app</groupId>
-	<artifactId>spring-boot-data-jpa</artifactId>
+	<groupId>com.bolsadeideas.springboot.heroku.app</groupId>
+	<artifactId>spring-boot-heroku</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>spring-boot-data-jpa</name>
+	<name>spring-boot-heroku</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -112,7 +112,7 @@
 	
 	<pluginRepositories>
 		<pluginRepository>
-			<id>sppring-milestones</id>
+			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>https//repo.spring.io/libs-milestone</url>
 			<snapshots>
